@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
@@ -7,9 +7,13 @@ public class PlayerMovement : MonoBehaviour
     public Transform topMap;    // la map du haut
     public Transform bottomMap; // la map du bas
 
+    public int varTest = 0;
+
     void Update()
     {
-        float move = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        Debug.Log("Update() s'exécute bien ✅");
+        float move = Keyboard.current.aKey.isPressed ? -speed * Time.deltaTime :
+              Keyboard.current.dKey.isPressed ? speed * Time.deltaTime : 0f;
 
         // Déplacement du joueur bas
         transform.Translate(move, 0, 0);
@@ -25,5 +29,7 @@ public class PlayerMovement : MonoBehaviour
         // Et la map du haut bouge dans le même sens que le joueur du haut
         if (topMap != null)
             topMap.Translate(move, 0, 0);
+
+        Debug.Log(varTest);
     }
 }
