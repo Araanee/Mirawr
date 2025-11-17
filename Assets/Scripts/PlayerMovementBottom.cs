@@ -11,25 +11,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Update() s'exécute bien ✅");
         float move = Keyboard.current.aKey.isPressed ? -speed * Time.deltaTime :
               Keyboard.current.dKey.isPressed ? speed * Time.deltaTime : 0f;
 
-        // Déplacement du joueur bas
+        // Déplacement du joueur bas (ShadowPlayer)
         transform.Translate(move, 0, 0);
 
-        // La map du bas bouge dans le même sens (effet de défilement)
-        if (bottomMap != null)
-            bottomMap.Translate(-move, 0, 0);
-
-        // Le joueur du haut bouge en sens inverse
+        // Le joueur du haut bouge en sens inverse (synchronisé)
         if (topPlayer != null)
             topPlayer.Translate(-move, 0, 0);
 
-        // Et la map du haut bouge dans le même sens que le joueur du haut
-        if (topMap != null)
-            topMap.Translate(move, 0, 0);
-
-        Debug.Log(varTest);
+        // Les maps sont maintenant gérées par les MapGenerator
+        // Plus besoin de les déplacer manuellement
     }
 }
