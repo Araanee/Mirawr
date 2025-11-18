@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Déplacement")]
-    public float speed = 5f;
+    public float speed = 10f;
     
     [Header("Saut")]
     public float jumpForce = 10f;
