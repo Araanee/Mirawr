@@ -206,9 +206,9 @@ public class MapGenerator : MonoBehaviour
 
         if (!scrollRightToLeft)
         {
-            Console.Log("Je suis pas folle");
+            //Console.Log("Je suis pas folle");
         }
-        Console.Log($"[MapGenerator] Chunk généré à position {chunk.transform.position}, total: {activeChunks.Count}");
+        //Console.Log($"[MapGenerator] Chunk généré à position {chunk.transform.position}, total: {activeChunks.Count}");
     }
 
     /// <summary>
